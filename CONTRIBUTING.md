@@ -1,5 +1,7 @@
 # Contributing to Kodi4Seniors
 
+Deutsch: [CONTRIBUTING.DE.md](CONTRIBUTING.DE.md)
+
 ## Before opening a pull request
 
 - Keep changes focused and directly related to the Kodi skin or its release automation.
