@@ -7,6 +7,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate Addon
@@ -19,26 +22,18 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: npm
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.x"
 
-      - name: Install xmllint
-        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
-
       - name: Install npm dependencies
-        run: npm install
+        run: npm ci
 
       - name: Check formatting
         run: npm run format:check
 
-      - name: Validate Python scripts
-        run: npm run lint:python
-
-      - name: Validate XML
-        run: npm run lint:xml
-
-      - name: Build release archive
-        run: npm run build
+      - name: Validate repository
+        run: npm run validate

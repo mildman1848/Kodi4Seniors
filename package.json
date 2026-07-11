@@ -7,9 +7,10 @@
     "build": "python3 scripts/build_release.py",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint:python": "python3 -m py_compile scripts/build_release.py scripts/publish_to_repo.py",
-    "lint:xml": "xmllint --noout skin.kodi4seniors/addon.xml skin.kodi4seniors/1080i/Font.xml skin.kodi4seniors/1080i/Includes.xml skin.kodi4seniors/1080i/Home.xml skin.kodi4seniors/1080i/Settings.xml skin.kodi4seniors/1080i/MyPVRChannels.xml skin.kodi4seniors/1080i/MyPVRGuide.xml skin.kodi4seniors/1080i/DialogButtonMenu.xml",
-    "validate": "npm run lint:python && npm run lint:xml && npm run build"
+    "lint:python": "python3 -m py_compile scripts/build_release.py scripts/publish_to_repo.py scripts/validate_repo.py",
+    "lint:repo": "python3 scripts/validate_repo.py",
+    "test:release": "python3 scripts/validate_repo.py --release-zip",
+    "validate": "npm run lint:python && npm run lint:repo && npm run build && npm run test:release"
   },
   "devDependencies": {
     "prettier": "^3.9.4"
