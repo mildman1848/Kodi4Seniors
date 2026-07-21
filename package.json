@@ -13,6 +13,6 @@
     "validate": "npm run lint:python && npm run lint:repo && npm run build && npm run test:release"
   },
   "devDependencies": {
-    "prettier": "^3.9.4"
+    "prettier": "^3.9.6"
   }
 }
